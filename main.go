@@ -14,3 +14,7 @@ func main() {
 func SayHello(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, `Hello world`)
 }
+
+func SaySomething(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, `Hello world`)
+}
