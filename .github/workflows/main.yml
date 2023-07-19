@@ -25,7 +25,7 @@ jobs:
         with:
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/Simple-Deploy-Golang:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/simple-deploy-golang:latest
 
   deployment:
     needs: build
@@ -41,6 +41,6 @@ jobs:
           port: ${{ secrets.SERVER_PORT  }}
           script: |
             whoami
-            docker stop Simple-Deploy-Golang || true && docker rm Simple-Deploy-Golang || true
+            docker stop simple-deploy-golang || true && docker rm simple-deploy-golang || true
             docker pull ${{ vars.IMAGE_NAME }}
             docker run -d -p 1213:1213 --name ${{ vars.CONTAINER_NAME }} ${{ vars.IMAGE_NAME }}
